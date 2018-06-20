@@ -6,15 +6,13 @@ class highArray {
     this.length = 0;
     this.ptr = Memory.allocate(this.length);
     this._capacity = 0;
+    this.SIZE_RATIO = 2;
   }
 
   push(value){
     this._resize(this.length + 1);
     Memory.set(this.ptr + this.length, value);
-    this.length++;//try to put this first to see what happens
-    if(this.length > this._capacity){
-      this._capacity++;
-    }
+    this.length++;
   }
 
   pop(){
@@ -27,7 +25,9 @@ class highArray {
     if(len <= this._capacity){
       return;
     }
-    let newPtr = Memory.allocate(len);
+    console.log('re-allocated memory');
+    let newPtr = Memory.allocate(len*this.SIZE_RATIO);
+    this._capacity = len*this.SIZE_RATIO;
     if(newPtr === null){
       throw new Error('Out of memory');
     }
