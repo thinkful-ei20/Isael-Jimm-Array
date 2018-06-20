@@ -6,6 +6,13 @@ class highArray {
     this.ptr = memory.allocate(this.length);
   }
 
+  push(value){
+    this.resize(this.length + 1);
+    memory.set(this.ptr + this.length, value);
+    this.length++;//try to put this first to see what happens
+  }
+
+
 }
 
 
