@@ -40,5 +40,20 @@ const filterArray = (arr, filterNum) => {
 
 let testArray = [1,2,3,4,5,6,7,8,9];
 filterArray(testArray, 5);
-console.log(testArray);
+// console.log(testArray);
 
+function MaxSumInArr(arr){
+  let highestSum = 0;
+  let currentSum = 0;
+
+  for(let i = 0; i < arr.length; i++){
+    currentSum += arr[i];
+    if(currentSum > highestSum){
+      highestSum = currentSum;
+    }
+  }
+
+  return highestSum;
+}
+
+console.log(MaxSumInArr([4,6,-3,5,-2,1]));
