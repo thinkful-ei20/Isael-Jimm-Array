@@ -56,4 +56,31 @@ function MaxSumInArr(arr){
   return highestSum;
 }
 
-console.log(MaxSumInArr([4,6,-3,5,-2,1]));
+// console.log(MaxSumInArr([4,6,-3,5,-2,1]));
+
+
+function mergeArrays(arr1, arr2){
+  let arr1Index = 0;
+  let arr2Index = 0;
+  let result = [];
+  for(let i = 0; i < arr1.length+arr2.length; i++){
+    if(arr1Index >= arr1.length){
+      result.push(arr2[arr2Index]);
+      arr2Index++;
+      console.log('end of arr1');
+    } else if (arr2Index >= arr2.length){
+      result.push(arr1[arr1Index]);
+      arr1Index++;
+      console.log('end of arr2');
+    } else if(arr1[arr1Index] <= arr2[arr2Index]){
+      result.push(arr1[arr1Index]);
+      arr1Index++;
+    } else {
+      result.push(arr2[arr2Index]);
+      arr2Index++;
+    }
+  }
+  return result;
+}
+
+console.log(mergeArrays([1, 3, 6, 8, 11, 4], [2, 3, 5, 8, 9, 10, 12, 13, 14, 15]));
