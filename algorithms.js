@@ -83,4 +83,32 @@ function mergeArrays(arr1, arr2){
   return result;
 }
 
-console.log(mergeArrays([1, 3, 6, 8, 11, 4], [2, 3, 5, 8, 9, 10, 12, 13, 14, 15]));
+// console.log(mergeArrays([1, 3, 6, 8, 11, 4], [2, 3, 5, 8, 9, 10, 12, 13, 14, 15]));
+
+function replaceValueLoop(str, value){
+  let firstHalf = '';
+  let secondHalf;
+  let prevSpace = 0;
+  let result;
+
+  for(let i = 0; i < str.length; i++){
+    if(str.charAt(i) === value) {
+      let temp = str.slice(prevSpace,i);
+      firstHalf += temp;
+      secondHalf = str.slice(i+1);
+      prevSpace = i + 1;
+      result = firstHalf  + secondHalf;
+    }
+  }
+  return result ? result : str; 
+}
+
+function removeCharacters(string, values){
+  for(let k = 0; k < values.length; k++){
+     string = replaceValueLoop(string, values[k]);
+  }
+  
+  return string;
+}
+
+// console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
