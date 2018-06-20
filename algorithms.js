@@ -112,3 +112,19 @@ function removeCharacters(string, values){
 }
 
 // console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+
+function products(arr){
+  let results = [];
+  for(let k = 0; k < arr.length; k++){
+    let result = 1;
+    for(let i = 0; i < arr.length; i++){
+      if(i !== k){
+        result *= arr[i];
+      }
+    }
+    results.push(result);
+  }
+  return results;
+}
+
+// console.log(products([1, 3, 9, 4]));
