@@ -105,7 +105,7 @@ function replaceValueLoop(str, value){
 
 function removeCharacters(string, values){
   for(let k = 0; k < values.length; k++){
-     string = replaceValueLoop(string, values[k]);
+    string = replaceValueLoop(string, values[k]);
   }
   
   return string;
@@ -130,12 +130,43 @@ function products(arr){
 // console.log(products([1, 3, 9, 4]));
 
 function twoDArr(arr){
-
+  let xToSet0 = [];
+  let yToSet0 = [];
+  for(let i = 0; i < arr.length; i++){
+    for(let j = 0; j < arr[i].length; j++){
+      if(arr[i][j] === 0){
+        xToSet0.push(j);
+        yToSet0.push(i);
+      }
+    }
+  }
+  //console.log(xToSet0);
+  //console.log(yToSet0);
+  for(let k = 0; k < xToSet0.length; k++){
+    for(let i = 0; i < arr.length; i++){
+      for(let j = 0; j < arr[i].length; j++){
+        if(j === xToSet0[k]){
+          arr[i][j] = 0;
+        }
+        if(i === yToSet0[k]){
+          arr[i][j] = 0;
+        }
+      }
+    }
+  }
+  console.log(arr);
 }
+
+twoDArr([
+  [1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]]);
 
 function stringRotation(str1, str2){
   if(str1.length !== str2.length) return false;
   return (str1 + str2).includes(str2);
 }
 
-console.log(stringRotation('amazon', 'azonma'));
+// console.log(stringRotation('amazon', 'azonma'));
