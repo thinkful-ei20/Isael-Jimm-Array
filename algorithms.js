@@ -128,3 +128,14 @@ function products(arr){
 }
 
 // console.log(products([1, 3, 9, 4]));
+
+function twoDArr(arr){
+
+}
+
+function stringRotation(str1, str2){
+  if(str1.length !== str2.length) return false;
+  return (str1 + str2).includes(str2);
+}
+
+console.log(stringRotation('amazon', 'azonma'));
