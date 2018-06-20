@@ -12,7 +12,16 @@ class highArray {
     this.length++;//try to put this first to see what happens
   }
 
-
+  resize(len){
+    let oldPtr = this.ptr;
+    let newPtr = memory.allocate(len);
+    if(newPtr === null){
+      throw new Error('Out of memory');
+    }
+    memory.copy(newPtr, this.ptr, this.length);
+    memory.free(this.ptr);
+    this.ptr = newPtr;
+  }
 }
 
 
