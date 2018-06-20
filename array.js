@@ -40,8 +40,14 @@ class highArray {
     return Memory.get(this.ptr + index);
   }
 
+  remove(index){
+    if(index < 0 || index >= this.length){
+      throw new Error('Index out of bounds');
+    }
+    Memory.copy(this.ptr+index, this.ptr+index+1, this.length-index-1);
+    this.length--;
+  }
+
 }
 
 module.exports = highArray;
-
-// 1.

@@ -21,10 +21,10 @@ function main(){
   //the ptr is 15 because the array got resized 5 multiple times.
   //capacity hasnt grows by one everytime we push an element to the arr
 
-  // arr.pop();
-  // arr.pop();
-  // arr.pop();
-  // console.log(arr);
+  arr.pop();
+  arr.pop();
+  arr.pop();
+  console.log(arr);
   // the length is 3, mem address is 15, and the capacity is 6
   //the length was decreased by 3 because we used the pop method 3 times reducing the length every call
   //the memory address is still 15 because we didnt need to resize the arr
