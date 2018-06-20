@@ -8,6 +8,12 @@ function main(){
     arr.push(13);
 
     console.log(arr);
+    arr.push(5);
+    arr.push(15);
+    arr.push(19);
+    arr.push(45);
+    arr.push(10);
+    console.log(arr.get(0));
 }
 
 main();

@@ -1,4 +1,5 @@
-const Memory = require('./memory');
+const Mem = require('./memory');
+const Memory = new Mem();
 
 class highArray {
   constructor(){
@@ -22,6 +23,11 @@ class highArray {
     Memory.free(this.ptr);
     this.ptr = newPtr;
   }
+
+  get(index){
+    return Memory.get(this.ptr + index);
+  }
+
 }
 
 
